@@ -1,0 +1,287 @@
+LecturerID,CourseID
+1,Course 94
+1,Course 70
+1,Anatomical Pathology
+2,Modern History
+2,Course 50
+2,Course 25
+3,Course 68
+3,Political Philosophy
+3,International Relations
+3,Course 72
+4,Course 93
+5,Course 23
+5,Literary Theory
+6,Course 11
+6,Anglican Theology
+6,Course 73
+6,Course 39
+7,Course 79
+8,Biostatistics
+8,Plastic Surgery
+8,Analytic Philosophy
+9,Course 43
+9,MAYBE MAYBE
+10,Course 72
+11,Course 45
+11,Physical Metallurgy
+11,Course 61
+11,Statistics
+11,Course 16
+12,Inca History
+12,Military Strategy
+12,Course 30
+13,Physical Metallurgy
+13,Conservation Biology
+13,Course 61
+13,Plastic Surgery
+14,Course 27
+14,YES YES
+15,Course 95
+16,Course 54
+17,Course 48
+17,Course 51
+17,Anatomical Pathology
+17,Course 102
+17,Poetics
+18,Musical Composition
+18,Acoustics
+18,Course 109
+19,Course 66
+20,Ethnomuseology
+20,Cetology
+20,DIVALI
+20,Course 84
+20,Course 10
+21,Inca History
+21,Course 110
+21,Course 34
+21,MAYBE MAYBE
+22,Foreign Policy
+22,Course 53
+22,Course 38
+23,Plastic Surgery
+24,Dutch History
+24,Course 30
+25,Radiology
+25,Course 70
+26,Course 21
+26,Course 3
+26,Course 33
+26,Course 24
+27,Modern History
+27,Course 91
+27,Implantology
+28,Political Philosophy
+28,Course 91
+29,Physical Metallurgy
+29,Cosmochemistry
+30,Health Psychology
+30,MAYBE MAYBE
+30,Rural sociology
+30,British Literature
+31,Course 33
+31,Course 49
+32,Implantology
+32,Knowledge Policy
+32,Type Theory
+32,Family Psychology
+32,Course 83
+33,Political Philosophy
+34,Psychological Anthropology
+34,Course 10
+35,Course 20
+35,Course 46
+35,Normative Ethics
+36,Anthropology
+36,Southeast Asian Studies
+37,Economics
+38,Course 67
+38,Course 19
+39,Course 83
+39,Ethology
+39,YES YES
+39,Course 30
+40,Course 28
+40,Course 63
+40,Implantology
+41,Course 75
+41,Course 85
+41,Course 82
+42,Acoustics
+42,Sinology
+42,Course 91
+43,Course 37
+43,MAYBE MAYBE
+43,Inca History
+43,Course 85
+43,Course 14
+44,Course 53
+45,Course 45
+46,Course 49
+47,Course 12
+47,Course 100
+48,Course 46
+48,Course 75
+48,Course 48
+48,Sports Journalism
+48,Course 12
+49,Course 78
+49,Philosophical Logic
+49,Course 29
+49,Course 6
+49,Course 3
+50,Sinology
+50,Psychological Anthropology
+51,Course 105
+51,Computational Linguistics
+51,Course 69
+52,Physical Metallurgy
+52,Environmental Chemistry
+52,Course 66
+52,Course 52
+53,Dramaturgy
+53,Health Psychology
+53,Course 95
+53,Psychological Anthropology
+53,Radiology
+54,Course 100
+54,Course 106
+55,User Experience Design
+55,Course 52
+55,Course 38
+56,Microbiology
+56,Cosmochemistry
+56,Course 43
+56,Course 104
+56,Course 52
+57,Military Strategy
+57,Computer Security and Reliability
+57,Course 56
+57,Course 23
+57,Course 88
+58,British Literature
+58,Course 26
+58,Theoretical Sociology
+59,Course 74
+59,Anthropology
+59,Course 64
+59,Neural Engineering
+59,Course 9
+60,Modern History
+60,Course 102
+60,Course 65
+60,Course 54
+61,Course 97
+61,Course 5
+61,Botany
+61,Community Informatics
+61,Teleology
+62,Course 2
+63,Teleology
+63,Computer Security and Reliability
+63,Dance Studies
+64,Course 33
+64,German
+65,Course 2
+66,Implantology
+66,Traumatology
+66,Course 88
+66,Course 64
+66,Health Psychology
+67,Egyptology
+68,Course 47
+68,Course 19
+68,Course 72
+69,Course 9
+70,Dutch History
+71,Men's Studies
+72,Neural Engineering
+73,Course 8
+74,Traumatology
+75,Ethnomuseology
+75,Course 15
+75,Course 64
+75,Botany
+76,Course 76
+76,Course 41
+76,Course 53
+76,Course 39
+77,Course 101
+77,Inca History
+77,Course 11
+78,Course 81
+78,Biostatistics
+78,Course 18
+78,Egyptology
+79,Geophysics
+79,Course 45
+79,Political Philosophy
+80,Course 13
+80,Economics
+80,Neural Engineering
+80,Police Science
+81,Ethology
+82,Course 103
+83,Course 18
+83,Course 59
+83,Ethology
+84,Course 48
+84,Family Psychology
+84,RIKIKI
+84,Course 82
+85,Course 103
+85,Course 91
+85,Acoustics
+85,Peruvian History
+85,Course 87
+86,Cetology
+86,Plastic Surgery
+86,Course 47
+86,RIKIKI
+86,Course 84
+87,Course 2
+87,Course 6
+87,Course 67
+88,Police Science
+88,Course 103
+88,Biology
+88,Course 42
+89,Course 18
+89,Course 72
+89,Sociology of Motherhood
+90,British Literature
+90,Course 108
+91,Course 52
+91,Radiology
+91,English
+91,Course 4
+91,Course 2
+92,Course 29
+92,Course 101
+92,Course 48
+93,Course 52
+93,Peruvian History
+93,Course 39
+94,Police Science
+94,Sports Journalism
+94,Course 5
+95,Course 110
+95,Course 70
+96,Course 29
+96,Course 92
+96,Course 31
+96,Marine Biology
+96,Course 95
+97,Biblical History
+97,Course 103
+98,Course 92
+98,Course 38
+98,Course 65
+99,Course 89
+99,Course 48
+99,Course 102
+99,Course 67
+99,Course 13
+100,Course 76
+100,Course 31

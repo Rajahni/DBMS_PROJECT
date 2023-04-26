@@ -24,6 +24,8 @@ CREATE TABLE IF NOT EXISTS Enrol (
 	FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
 );
 
+
+
 LOAD DATA INFILE '/var/lib/mysql-files/students_full.csv' 
 INTO TABLE Student 
 FIELDS TERMINATED BY ',' 
