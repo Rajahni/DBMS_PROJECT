@@ -1,0 +1,201 @@
+course_code,course_name,date_created
+Acoustics,Introduction to Data Science,2022-05-08
+African Archaeology,Introduction to Nursing,2022-04-26
+Analytic Philosophy,Introduction to Innovation and Creativity,2022-06-22
+Anatomical Pathology,Introduction to Employee Relations Management,2022-06-25
+Anglican Theology,Introduction to Auditing,2022-05-28
+Anthropology,Introduction to Financial Management,2022-05-26
+Archaeology of Israel,Introduction to Organizational Behavior,2022-05-23
+Biblical History,Introduction to Supply Chain Analytics,2022-07-04
+Biology,Introduction to Statistics,2022-07-11
+Biostatistics,Introduction to Business Intelligence,2022-07-07
+Botany,Introduction to Business Development,2022-07-03
+British Literature,Introduction to Pharmacy,2022-04-28
+Cell Biology,Introduction to Machine Learning Fundamentals,2022-07-14
+Cetology,Introduction to Teamwork,2022-06-05
+Community Informatics,Introduction to Consumer Behavior,2022-06-15
+Computational Linguistics,Introduction to Salesforce Management,2022-07-06
+Computer Security and Reliability,Introduction to Mobile App Development,2022-05-13
+Conservation Biology,Introduction to Business Communication,2022-06-26
+Cosmochemistry,Introduction to Business Models and Strategy,2022-07-09
+Course 1,Introduction to Computer Science,2022-01-01
+Course 10,Introduction to Sociology,2022-01-10
+Course 100,Introduction to History,2022-04-13
+Course 101,Introduction to Music,2022-04-15
+Course 102,Introduction to Theater,2022-04-16
+Course 103,Introduction to Film Studies,2022-04-17
+Course 104,Introduction to Communication Studies,2022-04-18
+Course 105,Introduction to Journalism,2022-04-19
+Course 106,Introduction to Biology,2022-04-20
+Course 107,Introduction to Chemistry,2022-04-21
+Course 108,Introduction to Physics,2022-04-22
+Course 109,Introduction to Engineering,2022-04-23
+Course 11,Physics for Engineers,2022-01-11
+Course 110,Introduction to Computer Science,2022-04-24
+Course 111,Introduction to Medical Terminology,2022-04-25
+Course 12,Spanish for Beginners,2022-01-12
+Course 13,Principles of Marketing,2022-01-13
+Course 14,Organic Chemistry,2022-01-14
+Course 15,Introduction to Statistics,2022-01-15
+Course 16,Introduction to Anthropology,2022-01-16
+Course 17,Introduction to Business Management,2022-01-17
+Course 18,Introduction to Political Science,2022-01-18
+Course 19,Introduction to Ethics,2022-01-19
+Course 2,Calculus I,2022-01-02
+Course 20,Introduction to Environmental Science,2022-01-20
+Course 21,Introduction to Human Anatomy,2022-01-21
+Course 22,Introduction to Linguistics,2022-01-22
+Course 23,Introduction to Geology,2022-01-23
+Course 24,Introduction to Astronomy,2022-01-24
+Course 25,Introduction to Cultural Studies,2022-01-25
+Course 26,Introduction to Gender Studies,2022-01-26
+Course 27,Introduction to Film Studies,2022-01-27
+Course 28,Introduction to Music Theory,2022-01-28
+Course 29,Introduction to World Religions,2022-01-30
+Course 3,English Composition,2022-01-03
+Course 30,Introduction to Public Speaking,2022-01-31
+Course 31,Introduction to Information Technology,2022-02-01
+Course 32,Introduction to Artificial Intelligence,2022-02-03
+Course 33,Introduction to Data Science,2022-02-04
+Course 34,Introduction to Web Development,2022-02-05
+Course 35,Introduction to Graphic Design,2022-02-06
+Course 36,Introduction to User Experience Design,2022-02-07
+Course 37,Introduction to Mobile App Development,2022-02-08
+Course 38,Introduction to Sound Muting,2022-02-09
+Course 39,Introduction to Big Data Analytics,2022-02-10
+Course 4,History of Art,2022-01-04
+Course 40,Introduction to Virtual Reality,2022-02-11
+Course 41,Introduction to Augmented Reality,2022-02-12
+Course 42,Introduction to Blockchain Technology,2022-02-13
+Course 43,Introduction to World History,2022-02-14
+Course 44,Introduction to Human Physiology,2022-02-15
+Course 45,Introduction to Genetics,2022-02-16
+Course 46,Introduction to Pharmacology,2022-02-17
+Course 47,Introduction to Microbiology,2022-02-18
+Course 48,Introduction to Forensic Science,2022-02-19
+Course 49,Introduction to Neuroscience,2022-02-20
+Course 5,Chemistry 101,2022-01-05
+Course 50,Sociology of Law,2022-02-21
+Course 51,Introduction to Criminology,2022-02-22
+Course 52,Introduction to Political Theory,2022-02-23
+Course 53,Introduction to Environmental Ethics,2022-02-24
+Course 54,Introduction to Computer Networks,2022-02-25
+Course 55,Introduction to Software Engineering,2022-02-26
+Course 56,Introduction to Database Management,2022-02-27
+Course 57,Introduction to Artificial Intelligence,2022-02-28
+Course 58,Introduction to Human-Computer Interaction,2022-03-01
+Course 59,Introduction to Computer Graphics,2022-03-02
+Course 6,Introduction to Psychology,2022-01-06
+Course 60,Introduction to Operating Systems,2022-03-03
+Course 61,Introduction to Cybersecurity,2022-03-04
+Course 62,Introduction to Digital Marketing,2022-03-05
+Course 63,Introduction to Business Analytics,2022-03-06
+Course 64,Introduction to Project Management,2022-03-07
+Course 65,Introduction to Financial Management,2022-03-08
+Course 66,Introduction to Organizational Behavior,2022-03-09
+Course 67,Introduction to Human Resource Management,2022-03-10
+Course 68,Introduction to Ethical Hacking,2022-03-11
+Course 69,Introduction to Machine Learning,2022-03-12
+Course 7,Data Structures and Algorithms,2022-01-07
+Course 70,Introduction to Data Analytics,2022-03-13
+Course 71,Introduction to  Foot,2022-03-14
+Course 72,Introduction to Web Design,2022-03-15
+Course 73,Introduction to Mobile App Development,2022-03-16
+Course 74,Introduction to User Experience Design,2022-03-17
+Course 75,Introduction to Video Production,2022-03-19
+Course 76,Introduction to Photography,2022-03-20
+Course 77,Introduction to Music Production,2022-03-21
+Course 78,Introduction to Fashion Design,2022-03-22
+Course 79,Introduction to Sports Management,2022-03-23
+Course 8,Introduction to Philosophy,2022-01-08
+Course 80,Introduction to Event Management,2022-03-24
+Course 81,Introduction to Business Ethics,2022-03-25
+Course 82,Introduction to Public Relations,2022-03-26
+Course 83,Introduction to Market Research,2022-03-27
+Course 84,Introduction to International Relations,2022-03-28
+Course 85,Introduction to Social Psychology,2022-03-29
+Course 86,Introduction to Environmental Science,2022-03-30
+Course 87,Introduction to Astronomy,2022-03-31
+Course 88,Introduction to Linguistics,2022-04-01
+Course 89,Introduction to Mathematics,2022-04-02
+Course 9,Introduction to Economics,2022-01-09
+Course 90,Introduction to Statistics,2022-04-03
+Course 91,Introduction to Economics,2022-04-04
+Course 92,Introduction to Finance,2022-04-05
+Course 93,Introduction to Marketing,2022-04-06
+Course 94,Introduction to Psychology,2022-04-07
+Course 95,Introduction to Anthropology,2022-04-08
+Course 96,Introduction to Philosophy,2022-04-09
+Course 97,Introduction to Political Science,2022-04-10
+Course 98,Introduction to Sociology,2022-04-11
+Course 99,Introduction to Geography,2022-04-12
+Critical Sociology,Introduction to Nuclear Medicine,2022-05-12
+Dance Studies,Introduction to Emotional Intelligence,2022-06-07
+DIVALI,Intro to Divali,2022-06-22
+Dramaturgy,Introduction to Reinforcement Learning,2022-07-18
+Dutch History,Introduction to Logistics and Supply Chain Management,2022-06-20
+Dynamics,Introduction to Time Management,2022-06-04
+Economics,Introduction to Big Data Analytics,2022-05-15
+Egyptology,Introduction to Cross-Cultural Communication,2022-06-10
+English,Introduction to Leadership,2022-05-22
+Entrepreneurial Economics,Introduction to Ethical Leadership,2022-06-28
+Environmental Chemistry,Introduction to Public Speaking,2022-06-09
+Ethnomuseology,Introduction to Digital Marketing,2022-05-16
+Ethology,Introduction to Dietetics,2022-05-03
+Family Psychology,Introduction to Professional Development,2022-06-27
+Family Therapy,Introduction to Interpersonal Skills,2022-06-08
+Finance,Introduction to Market Research,2022-06-14
+Foreign Policy,Introduction to Sales Management,2022-05-25
+Geophysics,Introduction to Customer Relationship Management,2022-06-24
+German,Introduction to Physical Therapy,2022-04-29
+Health Psychology,Introduction to Computer Networking,2022-05-05
+Implantology,Introduction to Marketing Skills,2022-05-31
+Inca History,Introduction to Leadership Skills,2022-06-06
+International Relations,Introduction to Business Negotiation,2022-06-30
+Islamic Economics,Introduction to Quality Management,2022-06-21
+Knowledge Policy,Introduction to Computer Vision,2022-07-17
+Literary Theory,Introduction to Entrepreneurial Marketing,2022-07-05
+Marine Biology,Introduction to Public Health,2022-05-04
+Medieval Literature,Introduction to Data Visualization,2022-07-13
+Men's Studies,Introduction to Entrepreneurial Finance,2022-06-16
+Microbiology,Introduction to Communication Skills,2022-06-01
+Military Strategy,Introduction to Critical Thinking,2022-06-02
+Modern History,Introduction to Entrepreneurship,2022-05-18
+Musical Composition,Introduction to Machine Learning,2022-05-09
+Natural Language Processing,Introduction to Research Methods,2022-07-12
+Neural Engineering,Introduction to Operations Management,2022-06-19
+Normative Ethics,Introduction to Human Resources Management,2022-05-20
+Numerical Analysis,Introduction to Problem Solving,2022-06-03
+Organology,Introduction to Taxation,2022-05-29
+Orthoptics,Introduction to Project Management,2022-05-21
+Peruvian History,Introduction to Blockchain Technology,2022-05-11
+Philosophical Logic,Introduction to Occupational Therapy,2022-04-30
+Physical Metallurgy,Introduction to Investments,2022-06-12
+Plastic Surgery,Introduction to Customer Service,2022-05-24
+Poetics,Introduction to Respiratory Therapy,2022-05-01
+Police Science,Introduction to Global Business,2022-06-17
+Political Philosophy,Introduction to Business Law,2022-05-30
+Programming Languages,Introduction to Deep Learning,2022-07-15
+Propaganda,Introduction to Business Ethics,2022-06-13
+Psychological Anthropology,Introduction to Natural Language Processing,2022-07-16
+Radiology,Introduction to Software Engineering,2022-05-06
+RIKIKI,Intro to Rikiki,2022-07-17
+Rural sociology,Introduction to Cybersecurity,2022-05-07
+Sinology,Introduction to Business Planning,2022-07-02
+Sociology of Motherhood,Introduction to Accounting,2022-05-27
+Solid Mechanics,Introduction to Web Development,2022-05-12
+Southeast Asian Studies,Introduction to Personal Finance,2022-06-11
+Sports Journalism,Introduction to Artificial Intelligence,2022-05-10
+Statistics,Introduction to E-Commerce,2022-07-08
+Structural Mechanics,Introduction to Grounding,2022-05-14
+Teleology,Introduction to Radiology Technology,2022-05-02
+Theism and Atheism,Introduction to Business Analytics,2022-06-23
+Theoretical Sociology,Introduction to International Business,2022-07-01
+Traumatology,Introduction to Strategic Management,2022-06-18
+Type Theory,Introduction to Business Management,2022-05-19
+User Experience Design,Introduction to Social Media Marketing,2022-05-17
+Virology,Introduction to Dentistry,2022-04-27
+Women's Studies,Introduction to Data Analysis,2022-07-10
+YES YES,Intro to Yes,2022-08-02
+NO NO,intro to No,2022-02-02
+MAYBE MAYBE,Intro to Maybe,2021-02-02

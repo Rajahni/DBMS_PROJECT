@@ -1,0 +1,38 @@
+CREATE DATABASE IF NOT EXISTS project;
+
+USE project;
+
+CREATE TABLE IF NOT EXISTS Student (
+	StudentID INT,
+	Name VARCHAR(500),
+	Address VARCHAR(500),
+	Email VARCHAR(500),
+	PRIMARY KEY (StudentID)
+);
+
+CREATE TABLE IF NOT EXISTS Course (
+	CourseID VARCHAR(500),
+	CourseName VARCHAR(500),
+	DateCreated DATE,
+	PRIMARY KEY (CourseID)
+);
+
+CREATE TABLE IF NOT EXISTS Enrol (
+	StudentID INT,
+	CourseID VARCHAR(500),
+	Grade INT,
+	FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
+);
+
+LOAD DATA INFILE '/var/lib/mysql-files/students_full.csv' 
+INTO TABLE Student 
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE '/var/lib/mysql-files/courses.csv' INTO TABLE Course
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS;
