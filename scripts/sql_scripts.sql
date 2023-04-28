@@ -1,14 +1,25 @@
 -- Create the 'project' database if it doesn't exist and use it
-CREATE DATABASE IF NOT EXISTS project;
-USE project;
+CREATE DATABASE IF NOT EXISTS uwi;
+USE uwi;
 
 -- Create the 'Student' table
 CREATE TABLE IF NOT EXISTS Student (
     StudentID INT,
-    Name VARCHAR(500),
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
     Address VARCHAR(500),
     Email VARCHAR(500),
     PRIMARY KEY (StudentID)
+);
+
+-- Create the 'Lecturer' table
+CREATE TABLE IF NOT EXISTS Lecturer (
+    LecturerID INT,
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    Address VARCHAR(500),
+    Email VARCHAR(500),
+    PRIMARY KEY (LecturerID)
 );
 
 -- Create the 'Course' table
@@ -22,15 +33,15 @@ CREATE TABLE IF NOT EXISTS Course (
 -- Create the 'EnrolStudents' table and set a foreign key to the 'Student' table
 CREATE TABLE IF NOT EXISTS EnrolStudents (
     StudentID INT,
-    CourseID VARCHAR(500),
-    FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
+    CourseID VARCHAR(500)
+    -- FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
 );
 
 -- Create the 'EnrolLecturer' table and set a foreign key to the 'Lecturer' table
 CREATE TABLE IF NOT EXISTS EnrolLecturer (
     LecturerID INT,
-    CourseID VARCHAR(500),
-    FOREIGN KEY (LecturerID) REFERENCES Lecturer(LecturerID)
+    CourseID VARCHAR(500)
+    -- FOREIGN KEY (LecturerID) REFERENCES Lecturer(LecturerID)
 );
 
 -- Create the 'Calendar' table
@@ -90,18 +101,28 @@ CREATE TABLE IF NOT EXISTS Grades (
     PRIMARY KEY (GradesID)
 );
 
--- Create the 'Logins' table
-CREATE TABLE IF NOT EXISTS Logins (
-    UserID INT,
-    Name VARCHAR(100) NOT NULL UNIQUE,
-    Password VARCHAR(255) NOT NULL,
-    Joined_Date Date,
-    PRIMARY KEY (UserID)
+-- Create the 'User' table
+CREATE TABLE IF NOT EXISTS User (
+    userId INT,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    email VARCHAR(200),
+    role VARCHAR(10),
+    password VARCHAR(255) NOT NULL,
+    PRIMARY KEY (userId)
 );
 
 -- Load data from 'students_full.csv' into the 'Student' table
-LOAD DATA INFILE '/var/lib/mysql-files/students_full.csv' 
+LOAD DATA INFILE '/var/lib/mysql-files/Students.csv' 
 INTO TABLE Student 
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Load data from 'students_full.csv' into the 'Student' table
+LOAD DATA INFILE '/var/lib/mysql-files/Lecturers.csv' 
+INTO TABLE Lecturer 
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'

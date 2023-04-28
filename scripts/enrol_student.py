@@ -22,7 +22,7 @@ for row in csvreader:
 with open('../Database/enrol_students.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["StudentID", "CourseID"])
-    for studentid in range(1, 100002):
+    for studentid in range(1, 100001):
 
         num_courses = random.randint(3,6)
         choices = random.sample(range(0, len(courses)), num_courses)

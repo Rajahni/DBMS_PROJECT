@@ -1,0 +1,30 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "raj_connection",
+            "database": "uwi",
+            "username": "rajahni",
+            "password": "raj"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "uwi_user",
+            "username": "uwi_user",
+            "password": "uwi876",
+            "database": "testerbase"
+        }
+    ]
+}
