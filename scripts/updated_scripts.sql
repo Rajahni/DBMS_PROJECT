@@ -6,7 +6,7 @@ USE uwi;
 CREATE TABLE IF NOT EXISTS User (
 	userid INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(100),
-    email VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
     password VARCHAR(100),
     role ENUM ('admin', 'lecturer', 'student'),
     PRIMARY KEY (userid)
@@ -44,6 +44,25 @@ CREATE TABLE IF NOT EXISTS Course (
     adminid INT,
     PRIMARY KEY (courseid),
     FOREIGN KEY (adminid) REFERENCES Admin(adminid)
+);
+
+-- Create the 'Section' table
+CREATE TABLE IF NOT EXISTS Section (
+    sectionid INT,
+    courseid INT,
+    section_title VARCHAR(255) NOT NULL UNIQUE,
+    PRIMARY KEY (sectionid),
+    FOREIGN KEY (courseid) REFERENCES Course(courseid)
+);
+
+-- Create the 'Section_Item' table
+CREATE TABLE IF NOT EXISTS Section_Item (
+	itemid INT,
+    item_type ENUM ('link', 'file', 'slides'),
+    item_content VARCHAR(255),
+    sectionid INT,
+    PRIMARY KEY (itemid),
+    FOREIGN KEY (sectionid) REFERENCES Section(sectionid)
 );
 
 -- Create the 'Calendar_Event' table
@@ -95,6 +114,7 @@ CREATE TABLE IF NOT EXISTS Assignment (
 	assignment_id INT,
     assignment_content VARCHAR(255),
     date_created Date,
+    due_date Date,
     courseid INT,
     studentid INT,
     lecturerid INT,
@@ -114,7 +134,6 @@ CREATE TABLE IF NOT EXISTS Enrol_Student (
     FOREIGN KEY (courseid) REFERENCES Course(courseid)
 );
 
--- Create the 'Enrol_Lecturer' table
 CREATE TABLE IF NOT EXISTS Enrol_Lecturer (
 	enrol_id INT,
     lecturerid INT,
@@ -124,7 +143,6 @@ CREATE TABLE IF NOT EXISTS Enrol_Lecturer (
     FOREIGN KEY (course_id) REFERENCES Course(courseid)
 );
 
--- Create the 'Grade' table
 CREATE TABLE IF NOT EXISTS Grade (
 	gradeid INT,
     grade_score INT,

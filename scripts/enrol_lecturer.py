@@ -9,7 +9,7 @@ os.chdir(dname)
 courses = []
 
 
-openFile2 = open( "../Database/courses.csv", "r")
+openFile2 = open( "../Database/Courses.csv", "r")
 csvreader = csv.reader(openFile2)
 
 first = True
@@ -21,7 +21,7 @@ for row in csvreader:
 
 with open('../Database/enrol_lecturer.csv', 'w', newline='') as file:
     writer = csv.writer(file)
-    writer.writerow(["LecturerID", "CourseID"])
+    writer.writerow(["enrol_id","lecturerid", "course_id"])
     for studentid in range(1,101):
 
         num_courses = random.randint(1,5)
