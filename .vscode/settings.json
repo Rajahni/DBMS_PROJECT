@@ -24,7 +24,7 @@
             "name": "uwi_user",
             "username": "uwi_user",
             "password": "uwi876",
-            "database": "testerbase"
+            "database": "uwi"
         }
     ]
 }

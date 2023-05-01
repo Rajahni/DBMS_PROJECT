@@ -22,10 +22,12 @@ for row in csvreader:
 with open('../Database/enrol_students.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["enrol_id","student_id", "course_id"])
+    enrol_id=1
     for studentid in range(1, 100001):
 
         num_courses = random.randint(3,6)
         choices = random.sample(range(0, len(courses)), num_courses)
         course_choices = []
         for choice in choices:
-            writer.writerow([studentid, studentid, courses[choice]])
+            writer.writerow([enrol_id, studentid, courses[choice]])
+            enrol_id+=1
