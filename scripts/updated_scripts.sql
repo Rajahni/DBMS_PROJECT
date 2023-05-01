@@ -40,10 +40,7 @@ CREATE TABLE IF NOT EXISTS Student (
 CREATE TABLE IF NOT EXISTS Course (
 	courseid INT,
     course_name VARCHAR(255),
-    date_created Date,
-    adminid INT,
-    PRIMARY KEY (courseid),
-    FOREIGN KEY (adminid) REFERENCES Admin(adminid)
+    PRIMARY KEY (courseid)
 );
 
 -- Create the 'Section' table
