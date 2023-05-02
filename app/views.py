@@ -149,5 +149,52 @@ def get_discussions(forum_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+# All courses that have 50 or more students
+@app.route('/courses/fifty_or_more_students', methods=['GET'])
+def courses_fifty_or_more_students():
+    # retrieve all courses from database that have 50 or more students
+    cursor.execute("SELECT Course.CourseID, Course.CourseName, COUNT(StudentCourse.StudentID) AS EnrolledStudents FROM Course JOIN StudentCourse ON Course.CourseID=StudentCourse.CourseID GROUP BY Course.CourseID HAVING COUNT(StudentCourse.StudentID) >= 50")
+    courses = cursor.fetchall()
+    
+    return jsonify(courses), 200
+
+
+# All students that do 5 or more courses
+@app.route('/students/five_or_more_courses', methods=['GET'])
+def students_five_or_more_courses():
+    # retrieve all students from database that do 5 or more courses
+    cursor.execute("SELECT Student.StudentID, Student.FirstName, Student.LastName, COUNT(StudentCourse.CourseID) AS EnrolledCourses FROM Student JOIN StudentCourse ON Student.StudentID=StudentCourse.StudentID GROUP BY Student.StudentID HAVING COUNT(StudentCourse.CourseID) >= 5")
+    students = cursor.fetchall()
+    
+    return jsonify(students), 200
+
+
+# All lecturers that teach 3 or more courses
+@app.route('/lecturers/three_or_more_courses', methods=['GET'])
+def lecturers_three_or_more_courses():
+    # retrieve all lecturers from database that teach 3 or more courses
+    cursor.execute("SELECT Lecturer.LecturerID, Lecturer.FirstName, Lecturer.LastName, COUNT(Course.LecturerID) AS TeachingCourses FROM Lecturer JOIN Course ON Lecturer.LecturerID=Course.LecturerID GROUP BY Lecturer.LecturerID HAVING COUNT(Course.LecturerID) >= 3")
+    lecturers = cursor.fetchall()
+    
+    return jsonify(lecturers), 200
+
+# The 10 most enrolled courses
+@app.route('/courses/most_enrolled', methods=['GET'])
+def courses_most_enrolled():
+    # retrieve the 10 most enrolled courses from database
+    cursor.execute("SELECT Course.CourseID, Course.CourseName, COUNT(StudentCourse.StudentID) AS EnrolledStudents FROM Course JOIN StudentCourse ON Course.CourseID=StudentCourse.CourseID GROUP BY Course.CourseID ORDER BY COUNT(StudentCourse.StudentID) DESC LIMIT 10")
+    courses = cursor.fetchall()
+    
+    return jsonify(courses), 200
+
+# The top 10 students with the highest overall averages
+@app.route('/students/highest_averages', methods=['GET'])
+def students_highest_averages():
+    # retrieve the top 10 students with the highest overall averages from database
+    cursor.execute("SELECT Student.StudentID, Student.FirstName, Student.LastName, AVG(Grade) AS AverageGrade FROM Student JOIN StudentCourse ON Student.StudentID=StudentCourse.StudentID JOIN CourseWork ON StudentCourse.StudentCourseID=CourseWork.StudentCourseID GROUP BY Student.StudentID ORDER BY AVG(Grade) DESC LIMIT 10")
+    students = cursor.fetchall()
+    
+    return jsonify(students), 200
+
 if __name__ == '__main__':
     app.run(debug=True)

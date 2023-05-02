@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS Student (
 
 -- Create the 'Course' table
 CREATE TABLE IF NOT EXISTS Course (
-	courseid INT,
+	courseid INT NOT NULL AUTO_INCREMENT,
     course_name VARCHAR(255),
     PRIMARY KEY (courseid)
 );
@@ -249,3 +249,7 @@ BEGIN
         SET MESSAGE_TEXT = 'Error: Course must have at least 10 members.';
     END IF;
 END;
+
+Forum values (1, "To Test Data", "2023-05-02", 5);
+insert into Discussion values (1, 'This was very hard', 'This stressed me to near death', "2023-05-02", 1, 8);
+insert into Calendar_Event values (1, 'I hope we get marked and pass this course', 'By the sweat of our brow, this is tough', 7)
