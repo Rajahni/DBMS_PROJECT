@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from flask_mysqldb import MySQL
+# from flask_mysqldb import MySQL
 import mysql.connector
 
 app = Flask(__name__)
@@ -7,17 +7,26 @@ app.config["JSON_SORT_KEYS"] = False
 
 
 cnx = mysql.connector.connect(
-    host="insert host",
-    user="insert username",
-    password="insert password",
+    host="localhost",
+    user="uwi_user",
+    password="uwi876",
     database="uwi"
 )
 
 cursor = cnx.cursor()
 
-# Retrieve Courses
+# Retrieve All Courses
 @app.route('/courses', methods=['GET'])
 def retrieve_courses():
+
+    cnx = mysql.connector.connect(
+    host="localhost",
+    user="uwi_user",
+    password="uwi876",
+    database="uwi"
+)
+
+    cursor = cnx.cursor()
     # retrieve all courses from database
     cursor.execute("SELECT * FROM Course")
     courses = cursor.fetchall()
@@ -25,11 +34,41 @@ def retrieve_courses():
     
     return jsonify(courses), 200
 
+# Retrieve courses for a particular student
+@app.route('/courses/student/<studentid>', methods=['GET'])
+def retrieve_courses():
+
+    cnx = mysql.connector.connect(
+    host="localhost",
+    user="uwi_user",
+    password="uwi876",
+    database="uwi"
+)
+
+    cursor = cnx.cursor()
+    # retrieve all courses from database
+    cursor.execute("SELECT Course.course_name\
+                    FROM Course\
+                    JOIN Enrol_Student ON Course.courseid = Enrol_Student.courseid\
+                    WHERE Enrol_Student.student_id = <student_id>;")
+    courses = cursor.fetchall()
+    cursor.close()
+    
+    return jsonify(courses), 200
+
 # Retrieve members of a course
-@app.route('/students/<string:course_id>', methods=['GET'])
+@app.route('/students/<course_id>', methods=['GET'])
 def retrieve_members_of_course(course_id):
+    cnx = mysql.connector.connect(
+    host="localhost",
+    user="uwi_user",
+    password="uwi876",
+    database="uwi"
+)
+
+    cursor = cnx.cursor()
     # retrieve all members of specified course from database
-    cursor.execute("SELECT * FROM EnrolStudents WHERE CourseID=%s", (course_id,))
+    cursor.execute("SELECT * FROM Enrol_Student WHERE CourseID=%s", (course_id,))
     members = cursor.fetchall()
     cursor.close()
     
@@ -39,6 +78,14 @@ def retrieve_members_of_course(course_id):
 @app.route('/courses/<course_id>/calendar', methods=['GET'])
 def get_calendar_events(course_id):
     try:
+        cnx = mysql.connector.connect(
+        host="localhost",
+        user="uwi_user",
+        password="uwi876",
+        database="uwi"
+        )
+
+        cursor = cnx.cursor()
         cursor.execute("SELECT * FROM Calendar WHERE CourseID=%s", [course_id])
         calendar_events = cursor.fetchall()
         cursor.close()
