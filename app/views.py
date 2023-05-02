@@ -6,11 +6,19 @@ app = Flask(__name__)
 app.config["JSON_SORT_KEYS"] = False
 
 
+cnx = mysql.connector.connect(
+    host="insert host",
+    user="insert username",
+    password="insert password",
+    database="uwi"
+)
+
+cursor = cnx.cursor()
+
 # Retrieve Courses
 @app.route('/courses', methods=['GET'])
 def retrieve_courses():
     # retrieve all courses from database
-    cursor = mysql.connection.cursor()
     cursor.execute("SELECT * FROM Course")
     courses = cursor.fetchall()
     cursor.close()
@@ -21,7 +29,6 @@ def retrieve_courses():
 @app.route('/students/<string:course_id>', methods=['GET'])
 def retrieve_members_of_course(course_id):
     # retrieve all members of specified course from database
-    cursor = mysql.connection.cursor()
     cursor.execute("SELECT * FROM EnrolStudents WHERE CourseID=%s", (course_id,))
     members = cursor.fetchall()
     cursor.close()
@@ -32,7 +39,6 @@ def retrieve_members_of_course(course_id):
 @app.route('/courses/<course_id>/calendar', methods=['GET'])
 def get_calendar_events(course_id):
     try:
-        cursor = mysql.connection.cursor()
         cursor.execute("SELECT * FROM Calendar WHERE CourseID=%s", [course_id])
         calendar_events = cursor.fetchall()
         cursor.close()
@@ -47,7 +53,6 @@ def get_calendar_events(course_id):
 @app.route('/courses/<course_id>/forums', methods=['GET'])
 def get_forums(course_id):
     try:
-        cursor = mysql.connection.cursor()
         cursor.execute("SELECT * FROM Forum WHERE CourseID=%s", [course_id])
         forums = cursor.fetchall()
         cursor.close()
@@ -62,7 +67,6 @@ def get_forums(course_id):
 @app.route('/courses/forum/<forum_id>/discussions', methods=['GET'])
 def get_discussions(forum_id):
     try:
-        cursor = mysql.connection.cursor()
         cursor.execute("SELECT * FROM Discussion WHERE CourseID=%s", [forum_id])
         discussions = cursor.fetchall()
         cursor.close()
