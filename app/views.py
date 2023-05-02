@@ -30,6 +30,10 @@ def retrieve_courses():
     # retrieve all courses from database
     cursor.execute("SELECT * FROM Course")
     courses = cursor.fetchall()
+
+    # course_list = {}
+    # for course in courses:
+    #     course['']
     cursor.close()
     
     return jsonify(courses), 200
