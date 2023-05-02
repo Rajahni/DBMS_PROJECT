@@ -46,7 +46,7 @@ def retrieve_courses():
 )
 
     cursor = cnx.cursor()
-    # retrieve all courses from database
+    # retrieve all courses for studentid
     cursor.execute("SELECT Course.course_name\
                     FROM Course\
                     JOIN Enrol_Student ON Course.courseid = Enrol_Student.courseid\
