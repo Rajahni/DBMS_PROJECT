@@ -4,16 +4,16 @@ import random
 
 # # Connect to the database
 # cnx = mysql.connector.connect(
-#     host="your_host_name",
-#     user="your_username",
-#     password="your_password",
+#     host="localhost",
+#     user="uwi_user",
+#     password="uwi876",
 #     database="uwi"
 # )
 
 # # Generate 100,102 fake users
 # fake = Faker()
 # users = []
-# for i in range(1,100001):
+# for i in range(1,100103):
 #     userid = i
 #     name = fake.name()
 #     email = fake.email()
@@ -39,9 +39,9 @@ import random
 
 
 # cnx = mysql.connector.connect(
-#     host="your_host_name",
-#     user="your_username",
-#     password="your_password",
+#     host="localhost",
+#     user="uwi_user",
+#     password="uwi876",
 #     database="uwi"
 # )
 
@@ -87,7 +87,7 @@ cnx = mysql.connector.connect(
 # Insert the users into the database in batches of 1,000
 cursor = cnx.cursor(prepared=True)
 for i in range(1, 201):
-    batch = coursefordb[i:i+1000]
+    batch = coursefordb[i:i+200]
     query = "INSERT INTO Course (courseid, course_name) VALUES (%s, %s)"
     cursor.executemany(query, batch)
     cnx.commit()

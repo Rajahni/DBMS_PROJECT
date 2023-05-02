@@ -154,53 +154,6 @@ CREATE TABLE IF NOT EXISTS Grade (
     FOREIGN KEY (assignment_id) REFERENCES Assignment(assignment_id)
 );
 
--- Load data from 'Users' into the 'User' table
-LOAD DATA INFILE '/var/lib/mysql-files/Users.csv' 
-INTO TABLE User 
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"'
-LINES TERMINATED BY '\r\n'
-IGNORE 1 ROWS;
-
--- Load data from 'Student_ID' into the 'Student' table
-LOAD DATA INFILE '/var/lib/mysql-files/Student_ID.csv' 
-INTO TABLE Student 
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"'
-LINES TERMINATED BY '\r\n'
-IGNORE 1 ROWS;
-
--- Load data from 'Lecturer_ID' into the 'Lecturer' table
-LOAD DATA INFILE '/var/lib/mysql-files/Lecturer_ID.csv' 
-INTO TABLE Lecturer 
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
-
--- Load data from 'Courses' into the 'Course' table
-LOAD DATA INFILE '/var/lib/mysql-files/Courses.csv' 
-INTO TABLE Course 
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"'
-LINES TERMINATED BY '\r\n'
-IGNORE 1 ROWS;
-
--- Load data from 'enrol_students.csv' into the 'Enrol_Student' table
-LOAD DATA INFILE '/var/lib/mysql-files/enrol_students.csv' 
-INTO TABLE Enrol_Student 
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"'
-LINES TERMINATED BY '\r\n'
-IGNORE 1 ROWS;
-
--- Load data from 'enrol_lecturer.csv' into the 'Enrol_Lecturer' table
-LOAD DATA INFILE '/var/lib/mysql-files/enrol_lecturer.csv' 
-INTO TABLE Enrol_Lecturer 
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"'
-LINES TERMINATED BY '\r\n'
-IGNORE 1 ROWS;
 
 CREATE TRIGGER check_enrolment_limits
 BEFORE INSERT ON Enrol_Student
