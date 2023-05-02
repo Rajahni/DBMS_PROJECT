@@ -112,7 +112,7 @@ def get_calendar_events(course_id):
         )
 
         cursor = cnx.cursor()
-        cursor.execute("SELECT * FROM Calendar WHERE CourseID=%s", [course_id])
+        cursor.execute("SELECT * FROM Calendar_Event WHERE CourseID=%s", [course_id])
         calendar_events = cursor.fetchall()
         cursor.close()
         if len(calendar_events) == 0:
@@ -148,12 +148,13 @@ def get_discussions(forum_id):
         return jsonify({'discussions': discussions}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+    
 
 # All courses that have 50 or more students
 @app.route('/courses/fifty_or_more_students', methods=['GET'])
 def courses_fifty_or_more_students():
     # retrieve all courses from database that have 50 or more students
-    cursor.execute("SELECT Course.CourseID, Course.CourseName, COUNT(StudentCourse.StudentID) AS EnrolledStudents FROM Course JOIN StudentCourse ON Course.CourseID=StudentCourse.CourseID GROUP BY Course.CourseID HAVING COUNT(StudentCourse.StudentID) >= 50")
+    cursor.execute("SELECT Course.courseid, Course.coursename, COUNT(StudentCourse.StudentID) AS EnrolledStudents FROM Course JOIN StudentCourse ON Course.CourseID=StudentCourse.CourseID GROUP BY Course.CourseID HAVING COUNT(StudentCourse.StudentID) >= 50")
     courses = cursor.fetchall()
     
     return jsonify(courses), 200
@@ -195,6 +196,51 @@ def students_highest_averages():
     students = cursor.fetchall()
     
     return jsonify(students), 200
+
+
+@app.route('/courses', methods=['POST'])
+def create_course():
+    cnx = mysql.connector.connect(
+    host="localhost",
+    user="uwi_user",
+    password="uwi876",
+    database="uwi"
+    )
+
+    cursor = cnx.cursor()
+    course_name = request.json['course_name']
+    
+    cursor.execute("INSERT INTO Course (course_name) VALUES (%s)", (course_name,))
+    cursor.close()
+    
+    # return success response
+    return jsonify({'message': 'Course created successfully'}), 201
+
+@app.route('/calendar_events', methods=['POST'])
+def create_calendar_event():
+    cnx = mysql.connector.connect(
+        host="localhost",
+        user="uwi_user",
+        password="uwi876",
+        database="uwi"
+    )
+    cursor = cnx.cursor()
+
+    event_name = request.json['event_name']
+    event_content = request.json['event_content']
+    courseid = request.json['courseid']
+    event_date = request.json['event_date']
+
+    cursor.execute(
+        "INSERT INTO Calendar_Event (event_name, event_content, courseid, event_date) VALUES (%s, %s, %s, %s)",
+        (event_name, event_content, courseid, event_date)
+    )
+    cnx.commit()
+    cursor.close()
+    cnx.close()
+
+    # return success response
+    return jsonify({'message': 'Calendar event created successfully'}), 201
 
 if __name__ == '__main__':
     app.run(debug=True)

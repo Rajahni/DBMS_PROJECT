@@ -250,6 +250,6 @@ BEGIN
     END IF;
 END;
 
-Forum values (1, "To Test Data", "2023-05-02", 5);
+insert into Forum values (1, "To Test Data", "2023-05-02", 5);
 insert into Discussion values (1, 'This was very hard', 'This stressed me to near death', "2023-05-02", 1, 8);
 insert into Calendar_Event values (1, 'I hope we get marked and pass this course', 'By the sweat of our brow, this is tough', 7)
