@@ -36,7 +36,7 @@ def retrieve_courses():
 
 # Retrieve courses for a particular student
 @app.route('/courses/student/<studentid>', methods=['GET'])
-def retrieve_courses():
+def student_courses(studentid):
 
     cnx = mysql.connector.connect(
     host="localhost",
@@ -46,11 +46,33 @@ def retrieve_courses():
 )
 
     cursor = cnx.cursor()
-    # retrieve all courses for studentid
-    cursor.execute("SELECT Course.course_name\
+    
+    cursor.execute(f"SELECT Course.course_name\
                     FROM Course\
                     JOIN Enrol_Student ON Course.courseid = Enrol_Student.courseid\
-                    WHERE Enrol_Student.student_id = <student_id>;")
+                    WHERE Enrol_Student.student_id = {studentid}")
+    courses = cursor.fetchall()
+    cursor.close()
+    
+    return jsonify(courses), 200
+
+# Retrieve courses taught by a lecturer
+@app.route('/courses/lecturer/<lecturerid>', methods=['GET'])
+def lecturer_courses(lecturerid):
+
+    cnx = mysql.connector.connect(
+    host="localhost",
+    user="uwi_user",
+    password="uwi876",
+    database="uwi"
+)
+
+    cursor = cnx.cursor()
+    
+    cursor.execute(f"SELECT Course.course_name\
+                    FROM Course\
+                    JOIN Enrol_Lecturer ON Course.courseid = Enrol_Lecturer.course_id\
+                    WHERE Enrol_Lecturer.lecturerid = {lecturerid}")
     courses = cursor.fetchall()
     cursor.close()
     
