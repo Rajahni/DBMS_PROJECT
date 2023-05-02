@@ -1,52 +1,80 @@
-from flask import Flask, request, make_response
+from flask import Flask, request, jsonify
+from flask_mysqldb import MySQL
 import mysql.connector
 
 app = Flask(__name__)
 app.config["JSON_SORT_KEYS"] = False
 
 
-@app.route("/register", methods=["POST"])
-def register_user():
+cnx = mysql.connector.connect(
+    host="insert host",
+    user="insert username",
+    password="insert password",
+    database="uwi"
+)
 
+cursor = cnx.cursor()
+
+# Retrieve Courses
+@app.route('/courses', methods=['GET'])
+def retrieve_courses():
+    # retrieve all courses from database
+    cursor.execute("SELECT * FROM Course")
+    courses = cursor.fetchall()
+    cursor.close()
+    
+    return jsonify(courses), 200
+
+# Retrieve members of a course
+@app.route('/students/<string:course_id>', methods=['GET'])
+def retrieve_members_of_course(course_id):
+    # retrieve all members of specified course from database
+    cursor.execute("SELECT * FROM EnrolStudents WHERE CourseID=%s", (course_id,))
+    members = cursor.fetchall()
+    cursor.close()
+    
+    return jsonify(members), 200
+
+# Retrieve calendar events for a course
+@app.route('/courses/<course_id>/calendar', methods=['GET'])
+def get_calendar_events(course_id):
     try:
-        conn = mysql.connector.connect(user="uwi_user",
-                                    password="uwi876",
-                                    host="localhost",
-                                    database="uwi",
-                                    auth_plugin='mysql_native_password'
-                                    )
-        
-        cursor = conn.cursor()
-        # content = request.json
-        cursor.execute(f"SELECT MAX(LecturerID) from Lecturer")
-        row = cursor.fetchone()
-        lectid = {}
-        if row is not None:
-            lecturerID = row
-            lectid = {}
-            lectid["lecturer_id"] = lecturerID
-            cursor.close()
-            return make_response(lecturerID)
-        return 'no'
-        # userId = content[]
-        # firstname = content['firstname']
-        # lastname = content['lastname']
-        
-        # email = content['email']
-        # cursor.execute(f"SELECT * from Student WHERE Email={email}")
-        # row = cursor.fetchone()
-        # if row is not None:
-        #     role = 'student'
-        # elif row is None:
-        #     cursor.execute(f"SELECT * from Lecturer WHERE Email={email}")
-        #     row = cursor.fetchone()
-        #     if row is not None:
-        #         role = 'lecturer'
-        # else:
-        #     return make_response({"error":"User is neither student nor lecturer"}, 400)
-        
+        cursor.execute("SELECT * FROM Calendar WHERE CourseID=%s", [course_id])
+        calendar_events = cursor.fetchall()
+        cursor.close()
+        if len(calendar_events) == 0:
+            return jsonify({'message': 'No calendar events found for the course.'}), 404
+        return jsonify({'calendar_events': calendar_events}), 200
     except Exception as e:
-        return make_response({'error': str(e)}, 400)
+        return jsonify({'error': str(e)}), 500
+
+
+# Retrieve forums for a course
+@app.route('/courses/<course_id>/forums', methods=['GET'])
+def get_forums(course_id):
+    try:
+        cursor.execute("SELECT * FROM Forum WHERE CourseID=%s", [course_id])
+        forums = cursor.fetchall()
+        cursor.close()
+        if len(forums) == 0:
+            return jsonify({'message': 'No forums found for the course.'}), 404
+        return jsonify({'forums': forums}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+# Retrieve discussion threads for a forum
+@app.route('/courses/forum/<forum_id>/discussions', methods=['GET'])
+def get_discussions(forum_id):
+    try:
+        cursor.execute("SELECT * FROM Discussion WHERE CourseID=%s", [forum_id])
+        discussions = cursor.fetchall()
+        cursor.close()
+        if len(discussions) == 0:
+            return jsonify({'message': 'No discussions found for the forum.'}), 404
+        return jsonify({'discussions': discussions}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
