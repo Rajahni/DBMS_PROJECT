@@ -185,3 +185,19 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
+
+CREATE TRIGGER check_course_members
+BEFORE INSERT ON Enrol_Student
+FOR EACH ROW
+BEGIN
+    DECLARE member_count INT;
+    SELECT COUNT(*) INTO member_count
+    FROM Enrol_Student
+    WHERE course_id = NEW.course_id;
+    IF member_count >= 10 THEN
+        
+    ELSE
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Error: Course must have at least 10 members.';
+    END IF;
+END;
