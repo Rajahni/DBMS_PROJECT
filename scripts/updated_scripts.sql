@@ -216,8 +216,8 @@ BEGIN
     END IF;
 END;
 
-CREATE TRIGGER check_enrolment_lower_limits
-BEFORE DELETE ON Enrol_Student
+CREATE TRIGGER check_enrolment_lower_limits2
+AFTER DELETE ON Enrol_Student
 FOR EACH ROW
 BEGIN
     DECLARE course_count INT;
@@ -226,7 +226,7 @@ BEGIN
     WHERE student_id = OLD.student_id;
     IF course_count < 3 THEN
         SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Error: Minimum number of courses per student not reached.';
+        SET MESSAGE_TEXT = 'Error: Minimum number of courses per student reached.';
     END IF;
 END;
 
