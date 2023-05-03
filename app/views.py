@@ -244,5 +244,31 @@ def create_calendar_event():
     # return success response
     return jsonify({'message': 'Calendar event created successfully'}), 201
 
+@app.route('/register', methods=['POST'])
+def create_user():
+    cnx = mysql.connector.connect(
+    host="localhost",
+    user="uwi_user",
+    password="uwi876",
+    database="uwi"
+    )
+
+    cursor = cnx.cursor()
+    name = request.json['name']
+    email = request.json['email']
+    password = request.json['password']
+    role = request.json['role']
+    
+    cursor.execute(f"INSERT INTO User (name, email, password, role) VALUES ('{name}', '{email}', '{password}', '{role}')")
+    cursor.close()
+    
+    # return success response
+    return jsonify({'message': 'User created successfully',
+                    "name":name,
+                    "email":email,
+                    "password":password,
+                    "role":role}), 201
+
+
 if __name__ == '__main__':
     app.run(debug=True)
