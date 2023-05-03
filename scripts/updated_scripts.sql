@@ -202,7 +202,7 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-CREATE TRIGGER check_enrolment_limits
+CREATE TRIGGER check_enrolment_upper_limits
 BEFORE INSERT ON Enrol_Student
 FOR EACH ROW
 BEGIN
@@ -213,13 +213,25 @@ BEGIN
     IF course_count >= 6 THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Error: Maximum number of courses per student exceeded.';
-    ELSEIF course_count < 3 THEN
+    END IF;
+END;
+
+CREATE TRIGGER check_enrolment_lower_limits
+BEFORE DELETE ON Enrol_Student
+FOR EACH ROW
+BEGIN
+    DECLARE course_count INT;
+    SELECT COUNT(*) INTO course_count
+    FROM Enrol_Student
+    WHERE student_id = OLD.student_id;
+    IF course_count < 3 THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Error: Minimum number of courses per student not reached.';
     END IF;
 END;
 
-CREATE TRIGGER check_teaching_limits
+
+CREATE TRIGGER check_upper_teaching_limits
 BEFORE INSERT ON Enrol_Lecturer
 FOR EACH ROW
 BEGIN
@@ -230,7 +242,18 @@ BEGIN
     IF course_count >= 5 THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Error: Maximum number of courses per lecturer exceeded.';
-    ELSEIF course_count < 1 THEN
+    END IF;
+END;
+
+CREATE TRIGGER check_lower_teaching_limits
+BEFORE DELETE ON Enrol_Lecturer
+FOR EACH ROW
+BEGIN
+    DECLARE course_count INT;
+    SELECT COUNT(*) INTO course_count
+    FROM Enrol_Lecturer
+    WHERE lecturerid = OLD.lecturerid;
+    IF course_count < 1 THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Error: Minimum number of courses per lecturer not reached.';
     END IF;
