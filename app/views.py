@@ -212,7 +212,7 @@ def create_course():
     cursor = cnx.cursor()
     course_name = request.json['course_name']
     
-    cursor.execute("INSERT INTO Course (course_name) VALUES (%s)", (course_name,))
+    cursor.execute(f"INSERT INTO Course (course_name) VALUES ('{course_name}')")
     cursor.close()
     
     # return success response
@@ -234,8 +234,8 @@ def create_calendar_event():
     event_date = request.json['event_date']
 
     cursor.execute(
-        "INSERT INTO Calendar_Event (event_name, event_content, courseid, event_date) VALUES (%s, %s, %s, %s)",
-        (event_name, event_content, courseid, event_date)
+        "INSERT INTO Calendar_Event (event_name, event_content, courseid, event_date) VALUES\
+        ('{event_name}', '{event_content}', '{courseid}', '{event_date}')"
     )
     cnx.commit()
     cursor.close()
